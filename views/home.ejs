@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> To Do App </title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+      <div class="todo-form">
+           <h1>TODO APP</h1>
+           <form method="post" action="/add_post">
+            <div class="desc-input" id="desc_input_box">
+               <label for="desc">Description: </label> <br>
+               <input id="desc_input" name="desc" type="text" placeholder="What do you need to do !">
+            </div>
+            <div class="input-two">
+            <div id="cat_input_box">
+               <label for="category">Category: </label> <br>
+               <select name="cat" id="cat_input">
+                   <option value="personal">Personal</option>
+                   <option value="work">Work</option>
+                   <option value="school">School</option>
+                   <option value="cleaning">Cleaning</option>
+                   <option value="other">Other</option>
+               </select>               
+            </div>
+            <div id="date_input_box">
+                <label for="date">Due Date:</label> <br>
+                <input name="date" type="date" id="date_input">
+            </div>
+        </div>
+           <div class="btns">
+            <button type="submit" class="btn bg-dark"><img src="img/plus.svg" alt=""> Add Task</button>
+            
+
+            <button type="button" id="del_btn" class="btn bg-red"><img src="img/trash-fill.svg"> Delete Tasks</button>
+        </div>
+           </form>
+
+           <div class="todos-container">
+            <% const monthNames = ["January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+          ];
+            %>          
+            <% for(i of todo){ %>
+               <div class="todo">
+                <div class="left">
+                <input type="checkbox"  class="checkbox"  data-id="<%= i.id %>">
+                <div>
+                <h4><%= i.desc %></h4>
+
+                <p class="duedate"> <img src="img/calendar.svg" alt=""> <%= monthNames[i.date.getMonth()]%> <%= i.date.getDate() %>, <%= i.date.getFullYear() %></p>
+                </div>
+                </div>
+
+                <div class="right">
+                    <div class="cat-box <%= i.cat %>">
+                        <%= i.cat %>
+                    </div>
+                </div>
+               </div>
+               <% } %>
+           </div>
+      </div>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>
