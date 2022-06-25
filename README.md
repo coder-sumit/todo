@@ -13,6 +13,8 @@ Run these cammands on Terminal
   npm install
   node .\index.js
 ```
-Go to Browser and go to url "localhost:port"
+Go to Browser and go to url "localhost:8000"
+
+
 
 
