@@ -66,7 +66,7 @@ app.get('/delete_todo', (req, res)=>{
 
     setTimeout(()=>{
       return res.redirect('/');
-    }, 10);
+    }, 400);
 
 });
 
